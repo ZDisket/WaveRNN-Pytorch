@@ -16,13 +16,14 @@ from audio import *
 from hparams import hparams as hp
 from utils import *
 from tqdm import tqdm
+import faudio as Audio
 
 def get_wav_mel(path):
     """Given path to .wav file, get the quantized wav and mel spectrogram as numpy vectors
 
     """
     wav = load_wav(path)
-    mel = melspectrogram(wav)
+    mel, energy = Audio.tools.get_mel_from_wav(torch.FloatTensor(wav))
     if hp.input_type == 'raw' or hp.input_type=='mixture':
         return wav.astype(np.float32), mel
     elif hp.input_type == 'mulaw':
