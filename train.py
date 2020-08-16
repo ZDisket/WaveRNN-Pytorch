@@ -398,10 +398,6 @@ if __name__ == "__main__":
     device = torch.device("cuda" if use_cuda else "cpu")
     print("using device:{}".format(device))
 
-    if log_event_path is None:
-        log_event_path = "log/log_" + datetime.now().strftime("%Y%m%d-%H%M%S")
-    else:
-        log_event_path += "/" + datetime.now().strftime("%Y%m%d-%H%M%S")
     print("Tensorboard event path: {}".format(log_event_path))
     writer = SummaryWriter(log_dir=log_event_path)
 
@@ -441,6 +437,7 @@ if __name__ == "__main__":
 
     # main train loop
     try:
+        print("start train loop")
         train_loop(device, model, data_loader, optimizer, checkpoint_dir)
     except KeyboardInterrupt:
         print("Interrupted!")

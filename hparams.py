@@ -13,7 +13,7 @@ hparams = tf.contrib.training.HParams(
     input_type='bits',
     #
     # distribution type, currently supports only 'beta' and 'mixture'
-    distribution='mixture',  # or "mixture"
+    distribution='beta',  # or "mixture"
     log_scale_min=-32.23619130191664,  # = float(np.log(1e-7))
     quantize_channels=65536,  # quantize channel used for compute loss for mixture of logistics
     #
@@ -62,15 +62,15 @@ hparams = tf.contrib.training.HParams(
     #
     # ----------------
     # model parameters
-    rnn_dims=256,
-    fc_dims=128,
+    rnn_dims=512,
+    fc_dims=512,
     pad=2,
     # note upsample factors must multiply out to be equal to hop_size, so adjust
     # if necessary (i.e 4 x 5 x 10 = 200)
     upsample_factors=(8, 4,8),
-    compute_dims=64,
+    compute_dims=128,
     res_out_dims=128, #aux output is fed into 2 downstream nets
-    res_blocks=3,
+    res_blocks=10,
     # ----------------
     #
     # ----------------
