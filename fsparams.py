@@ -62,14 +62,6 @@ energy_max = 49.41127395629883
 
 n_bins = 256
 
-# Checkpoints and synthesis path
-preprocessed_path = "preprocessed/LJSpeech"
-checkpoint_path = ckdir 
-synth_path = ckdir + "/synth" 
-eval_path = ckdir + "/eval"
-log_path = ckdir + "/log" 
-test_path = "./results"
-
 
 # Optimizer
 batch_size = 8
