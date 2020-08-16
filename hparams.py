@@ -77,8 +77,8 @@ hparams = tf.contrib.training.HParams(
     # training parameters
     batch_size=128,
     nepochs=5000,
-    save_every_step=10000,
-    evaluate_every_step=5000,
+    save_every_step=5000,
+    evaluate_every_step=2500,
     # seq_len_factor can be adjusted to increase training sequence length (will increase GPU usage)
     seq_len_factor=7,
 
