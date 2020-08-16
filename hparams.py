@@ -19,7 +19,7 @@ hparams = tf.contrib.training.HParams(
     #
     # for Fatcord's original 9 bit audio, specify the audio bit rate. Note this corresponds to network output
     # of size 2**bits, so 9 bits would be 512 output, etc.
-    bits=10,
+    bits=9,
     # for mu-law
     mulaw_quantize_channels=512,
     # note: r9r9's deepvoice3 preprocessing is used instead of Fatchord's original.
@@ -76,9 +76,9 @@ hparams = tf.contrib.training.HParams(
     # ----------------
     # training parameters
     batch_size=128,
-    nepochs=5000,
+    nepochs=200,
     save_every_step=5000,
-    evaluate_every_step=2500,
+    evaluate_every_step=1000,
     # seq_len_factor can be adjusted to increase training sequence length (will increase GPU usage)
     seq_len_factor=7,
 
@@ -92,8 +92,8 @@ hparams = tf.contrib.training.HParams(
     lr_step_interval=15000,
 
     # sparsification
-    start_prune=80000,
-    prune_steps=80000,  # 20000
+    start_prune=10000,
+    prune_steps=5000,  # 20000
     sparsity_target=0.90,
     sparsity_target_rnn=0.90,
     sparse_group=4,
